@@ -18,22 +18,12 @@
                 </div>
 
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('produto')" :active="request()->routeIs('produto')">
+                    <x-nav-link :href="route('produto.index')" :active="request()->routeIs('produto')">
                         {{ __('Produtos') }}
                     </x-nav-link>
                 </div>
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('fornecedor')" :active="request()->routeIs('fornecedor')">
-                        {{ __('Fornecedores') }}
-                    </x-nav-link>
-                </div>
 
-                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <x-nav-link :href="route('estabelecimento')" :active="request()->routeIs('estabelecimento')">
-                        {{ __('Estabelecimentos') }}
-                    </x-nav-link>
-                </div>
             </div>
 
             <!-- Settings Dropdown -->

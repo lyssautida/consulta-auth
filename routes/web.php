@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Route::get('/itens', [ItemController::class, 'index'])->name('produto.index');
+Route::get('/itens/create', [ItemController::class, 'create'])->name('produto.create');
+Route::post('/itens', [ItemController::class, 'store'])->name('produto.store');
+Route::get('/itens/{item}/edit', [ItemController::class, 'edit'])->name('produto.edit');
+Route::put('/itens/{item}', [ItemController::class, 'update'])->name('produto.update');
+Route::delete('/itens/{item}', [ItemController::class, 'destroy'])->name('produto.destroy');
+
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -22,18 +32,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/produto', function () {
-    return view('produto');
-})->middleware(['auth', 'verified'])->name('produto');
-
-Route::get('/fornecedor', function () {
-    return view('fornecedor');
-})->middleware(['auth', 'verified'])->name('fornecedor');
-
-Route::get('/estabelecimento', function () {
-    return view('estabelecimento');
-})->middleware(['auth', 'verified'])->name('estabelecimento');
-
+Route::get('/produtos', function () {
+    return view('produtos');
+})->middleware(['auth', 'verified'])->name('produtos');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
